@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:8000/api/v1";
+const API_BASE = "https://cross-ai-panel-3.onrender.com/api/v1";
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "FETCH_UNIFIED_HISTORY") {
