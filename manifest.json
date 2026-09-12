@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "CrossAI Unified Sidebar & Context Bridge",
+  "version": "2.0.0",
+  "description": "Unifies ChatGPT, Claude, and Gemini native sidebars and bridges cross-AI context.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "http://localhost:8000/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*"
+      ],
+      "js": ["content/common.js"],
+      "css": ["styles/unified.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html"
+  }
+}
